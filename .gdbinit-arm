@@ -1,0 +1,3 @@
+set architecture arm
+set sysroot /usr/arm-linux-gnueabi
+#set solib-absolute-path /usr/arm-linux-gnueabi/lib

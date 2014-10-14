@@ -1,0 +1,17 @@
+Writing Image files to eMMC on Linux
+
+First mount the eMMC to your linux system : then do a
+‘mount‘
+
+If you don’t know how mount works read ahead:
+1. The Linux system in usual cases just creates directories or files for hardware devices in the /dev folder.
+2. Do a mount on the console before the eMMC is inserted to a USB reader and then one after it is mounted. For me the change was /dev/sdb Here "sdb" is the eMMC
+3. Change your present working directory to the location of the stored .img/Image file and perform a:
+‘sudo dd if=/dev/sdX of=~/bbb2/bbb.img bs=1M’
+
+NOTE: sdX is your device mount point name for eMMC for me this is sdb
+CAUTION: do not use sdX1 or sdx2 for this command, just sdX
+Man page for dd: http://linux.die.net/man/1/dd
+This command is very "quiet" aka not-verbose so you wait for it to complete. Usually takes a long time because it creates partitions and populates them with the data in the Image file.
+You can play with the bs=1M i.e block size being copied is 1Mb.
+
